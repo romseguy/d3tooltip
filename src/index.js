@@ -4,31 +4,35 @@ import { prependClass, functor } from './utils';
 const defaultOptions = {
   left: undefined, // mouseX
   top: undefined, // mouseY
-  offset: {left: 0, top: 0}
+  offset: {left: 0, top: 0},
+  root: undefined
 };
 
-export default function tooltip(d3, className = 'tooltip', {
-  left,
-  top,
-  offset,
-  } = defaultOptions) {
+export default function tooltip(d3, className = 'tooltip', options = {}) {
+  const {
+    left,
+    top,
+    offset,
+    root
+    } = {...defaultOptions, ...options};
+
   let attrs = {'class': className};
   let text = () => '';
   let styles = {};
 
   let el;
-  const body = d3.select('body');
-  const bodyNode = body.node();
+  const anchor = root || d3.select('body');
+  const rootNode = anchor.node();
 
   function tip(selection) {
     selection.on({
       'mouseover.tip': node => {
-        let [mouseX, mouseY] = d3.mouse(bodyNode);
+        let [mouseX, mouseY] = d3.mouse(rootNode);
         let [x, y] = [left || mouseX + offset.left, top || mouseY - offset.top];
 
-        body.selectAll('div.tip').remove();
+        anchor.selectAll(`div.${className}`).remove();
 
-        el = body.append('div')
+        el = anchor.append('div')
           .attr(prependClass(className)(attrs))
           .style({
             position: 'absolute',
@@ -41,7 +45,7 @@ export default function tooltip(d3, className = 'tooltip', {
       },
 
       'mousemove.tip': node => {
-        let [mouseX, mouseY] = d3.mouse(bodyNode);
+        let [mouseX, mouseY] = d3.mouse(rootNode);
         let [x, y] = [left || mouseX + offset.left, top || mouseY - offset.top];
 
         el
