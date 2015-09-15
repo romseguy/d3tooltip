@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { add } from 'd3-tooltip';
+import { add } from 'd3tooltip';
 
 export default class App extends Component {
   render() {

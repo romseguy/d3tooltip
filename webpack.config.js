@@ -29,7 +29,7 @@ module.exports = {
     }]
   },
   output: {
-    library: 'd3-tooltip',
+    library: 'd3tooltip',
     libraryTarget: 'umd'
   },
   plugins: plugins,

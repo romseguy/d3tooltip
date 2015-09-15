@@ -1,14 +1,14 @@
 {
-  "name": "d3-tooltip-simple-example",
+  "name": "d3tooltip-simple-example",
   "version": "1.0.0",
-  "description": "A simple example showing off d3-tooltip",
+  "description": "A simple example showing off d3tooltip",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/romseguy/d3-tooltip.git"
+    "url": "https://github.com/romseguy/d3tooltip.git"
   },
   "keywords": [
     "d3",
@@ -16,9 +16,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/romseguy/d3-tooltip/issues"
+    "url": "https://github.com/romseguy/d3tooltip/issues"
   },
-  "homepage": "https://github.com/romseguy/d3-tooltip",
+  "homepage": "https://github.com/romseguy/d3tooltip",
   "dependencies": {
     "react": "^0.13.3"
   },

@@ -19,7 +19,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'd3-tooltip': path.join(__dirname, '..', '..', 'src')
+      'd3tooltip': path.join(__dirname, '..', '..', 'src')
     },
     extensions: ['', '.js']
   },
