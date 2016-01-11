@@ -1,5 +1,6 @@
 import { is } from 'ramda';
-import { prependClass, functor } from './utils';
+import utils from './utils';
+const { prependClass, functor } = utils.default || utils;
 
 const defaultOptions = {
   left: undefined, // mouseX
