@@ -5,10 +5,14 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
-    "build": "babel src --out-dir lib",
-    "build:umd": "webpack src/index.js dist/d3tooltip.js && NODE_ENV=production webpack src/index.js dist/d3tooltip.min.js",
     "lint": "eslint src examples",
-    "prepublish": "npm run lint && npm run clean && npm run build && npm run build:umd"
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "build:lib": "babel src --out-dir lib",
+    "build:umd": "webpack src/index.js dist/d3tooltip.js --config webpack.config.development.js",
+    "build:umd:min": "webpack src/index.js dist/d3tooltip.min.js --config webpack.config.production.js",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
