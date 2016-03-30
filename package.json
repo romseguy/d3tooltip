@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
-    "lint": "eslint src examples",
+    "lint": "eslint src",
     "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
     "build:lib": "babel src --out-dir lib",
     "build:umd": "webpack src/index.js dist/d3tooltip.js --config webpack.config.development.js",
